@@ -1,5 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_nu_clone/pages/home_page.dart';
+import 'package:flutter_nu_clone/services/service_local_authentication.dart';
+import 'package:flutter_nu_clone/services/service_locator.dart';
+import 'package:local_auth/local_auth.dart';
+import 'package:flutter/services.dart';
 
 class LoginPage extends StatefulWidget {
   @override
@@ -7,10 +11,17 @@ class LoginPage extends StatefulWidget {
 }
 
 class _LoginPageState extends State<LoginPage> {
+  final LocalAuthenticationService _localAuth =
+      locator<LocalAuthenticationService>();
+
+  final _auth = LocalAuthentication();
+
+  bool isAuthenticated = false;
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Color.fromRGBO(140, 25, 162, 100),
+      backgroundColor: Color.fromRGBO(130, 50, 158, 2.0),
       body: _body(context),
     );
   }
@@ -41,8 +52,8 @@ class _LoginPageState extends State<LoginPage> {
               children: <Widget>[
                 Container(
                   margin: EdgeInsets.only(bottom: 50),
-                  height: 50,
-                  width: MediaQuery.of(context).size.width / 3,
+                  height: 60,
+                  width: MediaQuery.of(context).size.width / 10 * 4,
                   child: OutlineButton(
                     shape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(4),
@@ -58,14 +69,15 @@ class _LoginPageState extends State<LoginPage> {
                       style: TextStyle(
                         fontWeight: FontWeight.bold,
                         color: Colors.white,
+                        fontSize: 14,
                       ),
                     ),
                   ),
                 ),
                 Container(
                   margin: EdgeInsets.only(bottom: 50),
-                  height: 50,
-                  width: MediaQuery.of(context).size.width / 3,
+                  height: 60,
+                  width: MediaQuery.of(context).size.width / 10 * 4,
                   child: OutlineButton(
                     shape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(4),
@@ -81,6 +93,7 @@ class _LoginPageState extends State<LoginPage> {
                       style: TextStyle(
                         fontWeight: FontWeight.bold,
                         color: Colors.white,
+                        fontSize: 14,
                       ),
                     ),
                   ),
@@ -94,9 +107,25 @@ class _LoginPageState extends State<LoginPage> {
   }
 
   _loginPressed(context) {
-    print("Login pressed");
-    Navigator.push(context, MaterialPageRoute(builder: (BuildContext context) {
-      return HomePage();
-    }));
+    authenticate();
+  }
+
+  Future<void> authenticate() async {
+    try {
+      isAuthenticated = await _auth.authenticateWithBiometrics(
+        localizedReason: 'authenticate to access',
+        useErrorDialogs: true,
+        stickyAuth: true,
+      );
+    } on PlatformException catch (e) {
+      print(e);
+    }
+
+    if (isAuthenticated == true) {
+      Navigator.pushReplacement(context,
+          MaterialPageRoute(builder: (BuildContext context) {
+        return HomePage();
+      }));
+    }
   }
 }

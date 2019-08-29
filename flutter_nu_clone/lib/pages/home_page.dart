@@ -9,7 +9,7 @@ class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Color.fromRGBO(140, 25, 162, 100),
+      backgroundColor: Color.fromRGBO(130, 50, 158, 2.0),
       body: _body(),
     );
   }
@@ -18,29 +18,50 @@ class _HomePageState extends State<HomePage> {
     return Stack(
       children: <Widget>[
         Container(
-          margin: EdgeInsets.only(top: 100),
+          margin: EdgeInsets.only(top: 88),
           child: Column(
             mainAxisAlignment: MainAxisAlignment.start,
             crossAxisAlignment: CrossAxisAlignment.center,
             children: <Widget>[
               Center(
                 child: Container(
-                  width: 220,
+                  width: MediaQuery.of(context).size.width / 2,
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.center,
                     crossAxisAlignment: CrossAxisAlignment.center,
                     children: <Widget>[
                       Expanded(
-                        flex: 1,
-                        child: Text("Nu.", style: TextStyle(color: Colors.white, fontSize: 24, fontWeight: FontWeight.bold),),
+                        flex: 2,
+                        child: Container(
+                            padding: EdgeInsets.only(right: 8),
+                            child: Text(
+                              "Nu.",
+                              style: TextStyle(
+                                  color: Colors.white,
+                                  fontSize: 22,
+                                  fontWeight: FontWeight.bold),
+                            )),
                       ),
                       Expanded(
-                        flex: 4,
-                        child: Text("Gustavo Tatarem", style: TextStyle(color: Colors.white, fontSize: 20, fontWeight: FontWeight.bold),),
+                        flex: 7,
+                        child: Text(
+                          "Gustavo Tatarem",
+                          style: TextStyle(
+                              color: Colors.white,
+                              fontSize: 20,
+                              fontWeight: FontWeight.bold),
+                        ),
                       ),
                     ],
                   ),
                 ),
+              ),
+              SizedBox(
+                height: 16,
+              ),
+              Icon(
+                Icons.keyboard_arrow_down,
+                color: Colors.white,
               ),
             ],
           ),
