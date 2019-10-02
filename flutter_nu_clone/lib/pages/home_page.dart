@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_nu_clone/components/custom_card.dart';
 
 class HomePage extends StatefulWidget {
   @override
@@ -25,7 +26,7 @@ class _HomePageState extends State<HomePage> {
             children: <Widget>[
               Center(
                 child: Container(
-                  width: MediaQuery.of(context).size.width / 2,
+                  width: MediaQuery.of(context).size.width / 1.8,
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.center,
                     crossAxisAlignment: CrossAxisAlignment.center,
@@ -47,9 +48,11 @@ class _HomePageState extends State<HomePage> {
                         child: Text(
                           "Gustavo Tatarem",
                           style: TextStyle(
-                              color: Colors.white,
-                              fontSize: 20,
-                              fontWeight: FontWeight.bold),
+                            color: Colors.white,
+                            fontSize: 20,
+                            fontWeight: FontWeight.w700,
+                            letterSpacing: 2.2,
+                          ),
                         ),
                       ),
                     ],
@@ -66,18 +69,17 @@ class _HomePageState extends State<HomePage> {
             ],
           ),
         ),
-        Container(
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            crossAxisAlignment: CrossAxisAlignment.center,
-            children: <Widget>[
-              Container(
-                height: 340,
-                margin: EdgeInsets.all(16),
-                color: Colors.white,
-              ),
-            ],
-          ),
+        ListView(
+          scrollDirection: Axis.horizontal,
+          children: <Widget>[
+            Row(
+              children: <Widget>[
+                CustomCard(),
+                CustomCard(),
+                CustomCard(),
+              ],
+            ),
+          ],
         ),
       ],
     );
