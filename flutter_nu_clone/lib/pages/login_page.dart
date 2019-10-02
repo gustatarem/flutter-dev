@@ -11,8 +11,6 @@ class LoginPage extends StatefulWidget {
 }
 
 class _LoginPageState extends State<LoginPage> {
-  final LocalAuthenticationService _localAuth =
-      locator<LocalAuthenticationService>();
 
   final _auth = LocalAuthentication();
 
@@ -37,7 +35,7 @@ class _LoginPageState extends State<LoginPage> {
               child: Container(
                 width: 200,
                 height: 100,
-                child: Image.asset('assets/images/Nubank_Logo.png'),
+                child: Image.asset('assets/images/Nubank_Logo.png', color: Colors.white,),
               ),
             ),
           ],
