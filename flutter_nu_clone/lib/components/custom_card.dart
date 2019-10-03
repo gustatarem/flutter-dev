@@ -1,6 +1,27 @@
 import 'package:flutter/material.dart';
 
 class CustomCard extends StatelessWidget {
+  final Widget topLeftIcon;
+  final String topLeftLabel;
+  final Widget midTopLabel;
+  final Widget midMidLabel;
+  final Widget midBotLabel;
+  final Widget bottomLeftIcon;
+  final String bottomLabel;
+  final Widget bottomRightIcon;
+  final Widget child;
+
+  CustomCard(
+      {@required this.topLeftIcon,
+      @required this.topLeftLabel,
+      @required this.midTopLabel,
+      @required this.midMidLabel,
+      @required this.bottomLeftIcon,
+      @required this.bottomLabel,
+      @required this.bottomRightIcon ,
+      this.child,
+      this.midBotLabel});
+
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -8,7 +29,7 @@ class CustomCard extends StatelessWidget {
         borderRadius: BorderRadius.circular(5),
         color: Colors.white,
       ),
-      height: 340,
+      height: 350,
       width: MediaQuery.of(context).size.width - 32,
       margin: EdgeInsets.all(16),
       child: Stack(
@@ -21,20 +42,17 @@ class CustomCard extends StatelessWidget {
                 padding: const EdgeInsets.only(left: 20, top: 24),
                 child: Row(
                   children: <Widget>[
-                    Icon(
-                      Icons.credit_card,
-                      size: 36.0,
-                      color: Colors.black45,
-                    ),
+                    topLeftIcon,
                     SizedBox(
                       width: 10,
                     ),
                     Text(
-                      "Cartão de crédito",
+                      topLeftLabel,
                       style: TextStyle(
-                        color: Colors.black54,
+                        fontFamily: 'Rubik',
+                        color: Colors.grey[500],
                         fontSize: 12,
-                        letterSpacing: 0.8,
+                        letterSpacing: 0.3,
                       ),
                     )
                   ],
@@ -46,76 +64,87 @@ class CustomCard extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.center,
             crossAxisAlignment: CrossAxisAlignment.center,
             children: <Widget>[
-              Padding(
-                padding: const EdgeInsets.all(20.0),
-                child: Column(
-                  mainAxisAlignment: MainAxisAlignment.start,
-                  crossAxisAlignment: CrossAxisAlignment.start,
+              Container(
+                margin: EdgeInsets.only(bottom: 35),
+                child: Stack(
                   children: <Widget>[
-                    Text(
-                      "FATURA ATUAL",
-                      style: TextStyle(
-                        color: Colors.cyan,
-                        fontSize: 11,
-                        fontWeight: FontWeight.bold,
-                        letterSpacing: 0.5
+                    Padding(
+                      padding: const EdgeInsets.all(20.0),
+                      child: Column(
+                        mainAxisAlignment: MainAxisAlignment.start,
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: <Widget>[
+                          midTopLabel,
+                          Row(
+                            children: <Widget>[
+                              midMidLabel,
+                              SizedBox(
+                                width: 8,
+                              ),
+                            ],
+                          ),
+                          Row(
+                            children: <Widget>[
+                              midBotLabel,
+                            ],
+                          ),
+                        ],
                       ),
-                    ),
-                    Row(
-                      children: <Widget>[
-                        Text(
-                          "R\$",
-                          style: TextStyle(
-                            color: Colors.cyan,
-                            fontSize: 26,
-                            fontWeight: FontWeight.normal
-                          ),
-                        ),
-                        SizedBox(width: 8,),
-                        Text(
-                          "61",
-                          style: TextStyle(
-                              color: Colors.cyan,
-                              fontSize: 26,
-                              fontWeight: FontWeight.bold
-                          ),
-                        ),
-                        Text(
-                          ",03",
-                          style: TextStyle(
-                              color: Colors.cyan,
-                              fontSize: 26,
-                              fontWeight: FontWeight.normal
-                          ),
-                        ),
-                      ],
-                    ),
-                    Row(
-                      children: <Widget>[
-                        Text(
-                          "Limite disponível: ",
-                          style: TextStyle(
-                              color: Colors.black87,
-                              fontSize: 12,
-                              fontWeight: FontWeight.normal,
-                              letterSpacing: 0.5
-                          ),
-                        ),
-                        Text(
-                          "R\$1.000.000,00",
-                          style: TextStyle(
-                              color: Colors.lightGreenAccent,
-                              fontSize: 12,
-                              fontWeight: FontWeight.bold,
-                              letterSpacing: 0.5
-                          ),
-                        ),
-                      ],
                     ),
                   ],
                 ),
               ),
             ],
+          ),
+          Positioned(
+            bottom: 0,
+            left: 0,
+            right: 0,
+            child: Container(
+              height: 75,
+              decoration: BoxDecoration(
+                borderRadius: BorderRadius.only(
+                    bottomLeft: Radius.circular(5),
+                    bottomRight: Radius.circular(5)),
+                color: Colors.grey[200],
+              ),
+              child: Padding(
+                padding: const EdgeInsets.only(
+                    top: 8, bottom: 8, right: 16, left: 20),
+                child: Row(
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  children: <Widget>[
+                    Expanded(
+                      flex: 1,
+                      child: bottomLeftIcon,
+                    ),
+                    Expanded(
+                      flex: 14,
+                      child: LimitedBox(
+                        maxWidth: MediaQuery.of(context).size.width / 1.5,
+                        child: Container(
+                          padding: EdgeInsets.only(left: 16, right: 16),
+                          child: Text(
+                            bottomLabel,
+                            maxLines: 2,
+                            style: TextStyle(
+                                fontFamily: 'Rubik',
+                                color: Colors.black87,
+                                fontSize: 11,
+                                fontWeight: FontWeight.normal,
+                                letterSpacing: 0.5),
+                          ),
+                        ),
+                      ),
+                    ),
+                    Expanded(
+                      flex: 1,
+                      child: bottomRightIcon,
+                    ),
+                  ],
+                ),
+              ),
+            ),
           ),
         ],
       ),
