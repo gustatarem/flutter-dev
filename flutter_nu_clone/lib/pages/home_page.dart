@@ -22,19 +22,19 @@ class _HomePageState extends State<HomePage> {
           margin: EdgeInsets.only(top: 88),
           child: Column(
             mainAxisAlignment: MainAxisAlignment.start,
-            crossAxisAlignment: CrossAxisAlignment.center,
             children: <Widget>[
               Center(
                 child: Container(
                   width: MediaQuery.of(context).size.width / 1.8,
+//                  color: Colors.red,
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.center,
                     crossAxisAlignment: CrossAxisAlignment.center,
                     children: <Widget>[
                       Expanded(
-                        flex: 2,
+                        flex: 1,
                         child: Container(
-                            padding: EdgeInsets.only(right: 8),
+                            padding: EdgeInsets.only(left: 10),
                             child: Text(
                               "Nu.",
                               style: TextStyle(
@@ -44,14 +44,14 @@ class _HomePageState extends State<HomePage> {
                             )),
                       ),
                       Expanded(
-                        flex: 7,
+                        flex: 3,
                         child: Text(
                           "Gustavo Tatarem",
                           style: TextStyle(
                             color: Colors.white,
-                            fontSize: 20,
-                            fontWeight: FontWeight.w700,
-                            letterSpacing: 2.2,
+                            fontSize: 22,
+                            fontWeight: FontWeight.bold,
+                            letterSpacing: 1,
                           ),
                         ),
                       ),
@@ -65,6 +65,7 @@ class _HomePageState extends State<HomePage> {
               Icon(
                 Icons.keyboard_arrow_down,
                 color: Colors.white,
+                size: 20,
               ),
             ],
           ),
@@ -74,9 +75,133 @@ class _HomePageState extends State<HomePage> {
           children: <Widget>[
             Row(
               children: <Widget>[
-                CustomCard(),
-                CustomCard(),
-                CustomCard(),
+                CustomCard(
+                  topLeftIcon: Icon(
+                    Icons.credit_card,
+                    size: 30.0,
+                    color: Colors.grey[500],
+                  ),
+                  topLeftLabel: "Cartão de crédito",
+                  midTopLabel: Text(
+                    "FATURA ATUAL",
+                    style: TextStyle(
+                        color: Colors.cyan,
+                        fontSize: 13,
+                        fontWeight: FontWeight.bold,
+                        letterSpacing: 0.5),
+                  ),
+                  midMidLabel: RichText(
+                    text: TextSpan(
+                      children: <TextSpan>[
+                        TextSpan(
+                          text: "R\$ ",
+                          style: TextStyle(
+                              fontFamily: 'Rubik',
+                              color: Colors.cyan,
+                              fontSize: 36,
+                              fontWeight: FontWeight.normal),
+                        ),
+                        TextSpan(
+                            text: "2607",
+                            style: TextStyle(
+                                fontFamily: 'Rubik',
+                                color: Colors.cyan,
+                                fontSize: 36,
+                                fontWeight: FontWeight.w600)),
+                        TextSpan(
+                          text: ",00",
+                          style: TextStyle(
+                              fontFamily: 'Rubik',
+                              color: Colors.cyan,
+                              fontSize: 36,
+                              fontWeight: FontWeight.normal),
+                        ),
+                      ],
+                    ),
+                  ),
+                  midBotLabel: RichText(
+                    text: TextSpan(
+                      children: <TextSpan>[
+                        TextSpan(
+                          text: "Limite disponível: ",
+                          style: TextStyle(
+                              fontFamily: 'Rubik',
+                              color: Colors.black87,
+                              fontSize: 14,
+                              fontWeight: FontWeight.normal,
+                              letterSpacing: 0.5),
+                        ),
+                        TextSpan(
+                          text: "R\$",
+                          style: TextStyle(
+                              fontFamily: 'Rubik',
+                              color: Colors.lightGreenAccent[700],
+                              fontSize: 14,
+                              fontWeight: FontWeight.w600,
+                              letterSpacing: 0.5),
+                        ),
+                        TextSpan(
+                          text: "3.112.018,00",
+                          style: TextStyle(
+                              fontFamily: 'Rubik',
+                              color: Colors.lightGreenAccent[700],
+                              fontSize: 14,
+                              fontWeight: FontWeight.w600,
+                              letterSpacing: 0.5),
+                        ),
+                      ],
+                    ),
+                  ),
+                  bottomLeftIcon: Icon(
+                    Icons.shopping_cart,
+                    color: Colors.grey[700],
+                  ),
+                  bottomLabel:
+                      "Compra mais recente em Tatarem's Market no valor de R\$333,00 quinta",
+                  bottomRightIcon: Icon(
+                    Icons.arrow_forward_ios,
+                    size: 16,
+                    color: Colors.grey[500],
+                  ),
+                ),
+                CustomCard(
+                  topLeftIcon: Icon(
+                    Icons.monetization_on,
+                    size: 28.0,
+                    color: Colors.grey[500],
+                  ),
+                  topLeftLabel: "NuConta",
+                  midTopLabel: Text(
+                    "Saldo disponível",
+                    style: TextStyle(
+                      fontFamily: 'Rubik',
+                      color: Colors.grey[500],
+                      fontSize: 14,
+                      letterSpacing: 0.3,
+                    ),
+                  ),
+                  midMidLabel: Text(
+                    "R\$ 201.220,01",
+                    style: TextStyle(
+                      fontFamily: 'Rubik',
+                      color: Colors.black,
+                      fontSize: 36,
+                      fontWeight: FontWeight.normal,
+                    ),
+                  ),
+                  midBotLabel: Container(height: 0, width: 0,),
+                  bottomLeftIcon: Icon(
+                    Icons.credit_card,
+                    size: 26.0,
+                    color: Colors.grey[500],
+                  ),
+                  bottomLabel: "Pagamento da fatura realizado no valor de R\$230.720,16 ontem",
+                  bottomRightIcon: Icon(
+                    Icons.arrow_forward_ios,
+                    size: 16,
+                    color: Colors.grey[500],
+                  ),
+                ),
               ],
             ),
           ],
