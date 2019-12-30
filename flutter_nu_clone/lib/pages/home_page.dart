@@ -85,8 +85,8 @@ class _HomePageState extends State<HomePage> {
                   midTopLabel: Text(
                     "FATURA ATUAL",
                     style: TextStyle(
-                        color: Colors.cyan,
-                        fontSize: 13,
+                        color: Color(0xFF00BCC9),
+                        fontSize: 12,
                         fontWeight: FontWeight.bold,
                         letterSpacing: 0.5),
                   ),
@@ -96,24 +96,25 @@ class _HomePageState extends State<HomePage> {
                         TextSpan(
                           text: "R\$ ",
                           style: TextStyle(
-                              fontFamily: 'Rubik',
-                              color: Colors.cyan,
-                              fontSize: 36,
+                              fontFamily: 'Milliard',
+                              color: Color(0xFF00BCC9),
+                              fontSize: 30,
                               fontWeight: FontWeight.normal),
                         ),
                         TextSpan(
-                            text: "2607",
-                            style: TextStyle(
-                                fontFamily: 'Rubik',
-                                color: Colors.cyan,
-                                fontSize: 36,
-                                fontWeight: FontWeight.w600)),
+                          text: "2607",
+                          style: TextStyle(
+                              fontFamily: 'Milliard',
+                              color: Color(0xFF00BCC9),
+                              fontSize: 30,
+                              fontWeight: FontWeight.w600),
+                        ),
                         TextSpan(
                           text: ",00",
                           style: TextStyle(
-                              fontFamily: 'Rubik',
-                              color: Colors.cyan,
-                              fontSize: 36,
+                              fontFamily: 'Milliard',
+                              color: Color(0xFF00BCC9),
+                              fontSize: 30,
                               fontWeight: FontWeight.normal),
                         ),
                       ],
@@ -125,27 +126,27 @@ class _HomePageState extends State<HomePage> {
                         TextSpan(
                           text: "Limite disponível: ",
                           style: TextStyle(
-                              fontFamily: 'Rubik',
+                              fontFamily: 'Milliard',
                               color: Colors.black87,
-                              fontSize: 14,
+                              fontSize: 12,
                               fontWeight: FontWeight.normal,
                               letterSpacing: 0.5),
                         ),
                         TextSpan(
                           text: "R\$",
                           style: TextStyle(
-                              fontFamily: 'Rubik',
-                              color: Colors.lightGreenAccent[700],
-                              fontSize: 14,
+                              fontFamily: 'Milliard',
+                              color: Color(0xFF9FBF2C),
+                              fontSize: 12,
                               fontWeight: FontWeight.w600,
                               letterSpacing: 0.5),
                         ),
                         TextSpan(
                           text: "3.112.018,00",
                           style: TextStyle(
-                              fontFamily: 'Rubik',
-                              color: Colors.lightGreenAccent[700],
-                              fontSize: 14,
+                              fontFamily: 'Milliard',
+                              color: Color(0xFF9FBF2C),
+                              fontSize: 12,
                               fontWeight: FontWeight.w600,
                               letterSpacing: 0.5),
                         ),
@@ -154,15 +155,16 @@ class _HomePageState extends State<HomePage> {
                   ),
                   bottomLeftIcon: Icon(
                     Icons.shopping_cart,
-                    color: Colors.grey[700],
+                    color: Colors.grey[500],
                   ),
                   bottomLabel:
                       "Compra mais recente em Tatarem's Market no valor de R\$333,00 quinta",
                   bottomRightIcon: Icon(
                     Icons.arrow_forward_ios,
                     size: 16,
-                    color: Colors.grey[500],
+                    color: Colors.grey[400],
                   ),
+                  hasChart: true,
                 ),
                 CustomCard(
                   topLeftIcon: Icon(
@@ -174,33 +176,38 @@ class _HomePageState extends State<HomePage> {
                   midTopLabel: Text(
                     "Saldo disponível",
                     style: TextStyle(
-                      fontFamily: 'Rubik',
+                      fontFamily: 'Milliard',
                       color: Colors.grey[500],
-                      fontSize: 14,
+                      fontSize: 16,
                       letterSpacing: 0.3,
                     ),
                   ),
                   midMidLabel: Text(
                     "R\$ 201.220,01",
                     style: TextStyle(
-                      fontFamily: 'Rubik',
+                      fontFamily: 'Milliard',
                       color: Colors.black,
-                      fontSize: 36,
+                      fontSize: 38,
                       fontWeight: FontWeight.normal,
                     ),
                   ),
-                  midBotLabel: Container(height: 0, width: 0,),
+                  midBotLabel: Container(
+                    height: 0,
+                    width: 0,
+                  ),
                   bottomLeftIcon: Icon(
                     Icons.credit_card,
                     size: 26.0,
                     color: Colors.grey[500],
                   ),
-                  bottomLabel: "Pagamento da fatura realizado no valor de R\$230.720,16 ontem",
+                  bottomLabel:
+                      "Pagamento da fatura realizado no valor de R\$230.720,16 ontem",
                   bottomRightIcon: Icon(
                     Icons.arrow_forward_ios,
                     size: 16,
-                    color: Colors.grey[500],
+                    color: Colors.grey[400],
                   ),
+                  hasChart: false,
                 ),
               ],
             ),

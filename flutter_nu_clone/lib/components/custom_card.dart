@@ -10,6 +10,7 @@ class CustomCard extends StatelessWidget {
   final String bottomLabel;
   final Widget bottomRightIcon;
   final Widget child;
+  final bool hasChart;
 
   CustomCard(
       {@required this.topLeftIcon,
@@ -18,7 +19,8 @@ class CustomCard extends StatelessWidget {
       @required this.midMidLabel,
       @required this.bottomLeftIcon,
       @required this.bottomLabel,
-      @required this.bottomRightIcon ,
+      @required this.bottomRightIcon,
+      @required this.hasChart,
       this.child,
       this.midBotLabel});
 
@@ -34,6 +36,63 @@ class CustomCard extends StatelessWidget {
       margin: EdgeInsets.all(16),
       child: Stack(
         children: <Widget>[
+          hasChart
+              ? Positioned(
+                  right: 16,
+                  top: 24,
+                  bottom: 100,
+                  child: Container(
+                    height: double.infinity,
+                    width: 8,
+                    decoration: BoxDecoration(
+                      borderRadius: BorderRadius.all(
+                        Radius.circular(5),
+                      ),
+                    ),
+                    child: LayoutBuilder(
+                      builder: (context, constraints) {
+                        return Column(
+                          mainAxisSize: MainAxisSize.max,
+                          children: <Widget>[
+                            Container(
+                              height: constraints.maxHeight * 0.35,
+                              width: 8,
+                              decoration: BoxDecoration(
+                                borderRadius: BorderRadius.only(
+                                  topRight: Radius.circular(5),
+                                  topLeft: Radius.circular(5),
+                                ),
+                                color: Color(0xFFF29F05),
+                              ),
+                            ),
+                            Container(
+                              height: constraints.maxHeight * 0.15,
+                              width: 8,
+                              decoration: BoxDecoration(
+                                color: Color(0xFF00BCC9),
+                              ),
+                            ),
+                            Container(
+                              height: constraints.maxHeight * 0.50,
+                              width: 8,
+                              decoration: BoxDecoration(
+                                borderRadius: BorderRadius.only(
+                                  bottomLeft: Radius.circular(5),
+                                  bottomRight: Radius.circular(5),
+                                ),
+                                color: Color(0xFF9FBF2C),
+                              ),
+                            ),
+                          ],
+                        );
+                      },
+                    ),
+                  ),
+                )
+              : Container(
+                  height: 0,
+                  width: 0,
+                ),
           Column(
             mainAxisAlignment: MainAxisAlignment.start,
             crossAxisAlignment: CrossAxisAlignment.start,
@@ -49,7 +108,7 @@ class CustomCard extends StatelessWidget {
                     Text(
                       topLeftLabel,
                       style: TextStyle(
-                        fontFamily: 'Rubik',
+                        fontFamily: 'Milliard',
                         color: Colors.grey[500],
                         fontSize: 12,
                         letterSpacing: 0.3,
@@ -106,7 +165,7 @@ class CustomCard extends StatelessWidget {
                 borderRadius: BorderRadius.only(
                     bottomLeft: Radius.circular(5),
                     bottomRight: Radius.circular(5)),
-                color: Colors.grey[200],
+                color: Colors.grey[100],
               ),
               child: Padding(
                 padding: const EdgeInsets.only(
@@ -128,7 +187,7 @@ class CustomCard extends StatelessWidget {
                             bottomLabel,
                             maxLines: 2,
                             style: TextStyle(
-                                fontFamily: 'Rubik',
+                                fontFamily: 'Milliard',
                                 color: Colors.black87,
                                 fontSize: 11,
                                 fontWeight: FontWeight.normal,
