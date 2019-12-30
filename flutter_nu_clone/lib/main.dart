@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_nu_clone/pages/home_page.dart';
 import 'package:flutter_nu_clone/pages/login_page.dart';
 import 'package:flutter_nu_clone/services/service_locator.dart';
 
@@ -16,7 +17,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primaryColor: Colors.purple,
       ),
-      home: LoginPage(),
+      home: HomePage(),
     );
   }
 }
