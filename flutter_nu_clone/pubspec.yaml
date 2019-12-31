@@ -22,6 +22,7 @@ dependencies:
   local_auth: any
   cupertino_icons: ^0.1.2
   get_it: any
+  page_view_indicators:
 
 dev_dependencies:
   flutter_test:
