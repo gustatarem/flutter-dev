@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 class CustomCard extends StatelessWidget {
-  final Widget topLeftIcon;
+  final Widget topIcon;
   final String topLeftLabel;
   final Widget midTopLabel;
   final Widget midMidLabel;
@@ -13,7 +13,7 @@ class CustomCard extends StatelessWidget {
   final bool hasChart;
 
   CustomCard(
-      {@required this.topLeftIcon,
+      {@required this.topIcon,
       @required this.topLeftLabel,
       @required this.midTopLabel,
       @required this.midMidLabel,
@@ -36,63 +36,6 @@ class CustomCard extends StatelessWidget {
       margin: EdgeInsets.all(16),
       child: Stack(
         children: <Widget>[
-          hasChart
-              ? Positioned(
-                  right: 16,
-                  top: 24,
-                  bottom: 100,
-                  child: Container(
-                    height: double.infinity,
-                    width: 8,
-                    decoration: BoxDecoration(
-                      borderRadius: BorderRadius.all(
-                        Radius.circular(5),
-                      ),
-                    ),
-                    child: LayoutBuilder(
-                      builder: (context, constraints) {
-                        return Column(
-                          mainAxisSize: MainAxisSize.max,
-                          children: <Widget>[
-                            Container(
-                              height: constraints.maxHeight * 0.35,
-                              width: 8,
-                              decoration: BoxDecoration(
-                                borderRadius: BorderRadius.only(
-                                  topRight: Radius.circular(5),
-                                  topLeft: Radius.circular(5),
-                                ),
-                                color: Color(0xFFF29F05),
-                              ),
-                            ),
-                            Container(
-                              height: constraints.maxHeight * 0.15,
-                              width: 8,
-                              decoration: BoxDecoration(
-                                color: Color(0xFF00BCC9),
-                              ),
-                            ),
-                            Container(
-                              height: constraints.maxHeight * 0.50,
-                              width: 8,
-                              decoration: BoxDecoration(
-                                borderRadius: BorderRadius.only(
-                                  bottomLeft: Radius.circular(5),
-                                  bottomRight: Radius.circular(5),
-                                ),
-                                color: Color(0xFF9FBF2C),
-                              ),
-                            ),
-                          ],
-                        );
-                      },
-                    ),
-                  ),
-                )
-              : Container(
-                  height: 0,
-                  width: 0,
-                ),
           Column(
             mainAxisAlignment: MainAxisAlignment.start,
             crossAxisAlignment: CrossAxisAlignment.start,
@@ -100,20 +43,9 @@ class CustomCard extends StatelessWidget {
               Padding(
                 padding: const EdgeInsets.only(left: 20, top: 24),
                 child: Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
                   children: <Widget>[
-                    topLeftIcon,
-                    SizedBox(
-                      width: 10,
-                    ),
-                    Text(
-                      topLeftLabel,
-                      style: TextStyle(
-                        fontFamily: 'Milliard',
-                        color: Colors.grey[500],
-                        fontSize: 12,
-                        letterSpacing: 0.3,
-                      ),
-                    )
+                    topIcon,
                   ],
                 ),
               ),

@@ -26,7 +26,6 @@ class _HomePageState extends State<HomePage> {
               Center(
                 child: Container(
                   width: MediaQuery.of(context).size.width / 1.8,
-//                  color: Colors.red,
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.center,
                     crossAxisAlignment: CrossAxisAlignment.center,
@@ -70,139 +69,209 @@ class _HomePageState extends State<HomePage> {
             ],
           ),
         ),
-        ListView(
-          scrollDirection: Axis.horizontal,
+        Column(
+          mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
-            Row(
-              children: <Widget>[
-                CustomCard(
-                  topLeftIcon: Icon(
-                    Icons.credit_card,
-                    size: 30.0,
-                    color: Colors.grey[500],
-                  ),
-                  topLeftLabel: "Cartão de crédito",
-                  midTopLabel: Text(
-                    "FATURA ATUAL",
-                    style: TextStyle(
-                        color: Colors.cyan,
-                        fontSize: 13,
-                        fontWeight: FontWeight.bold,
-                        letterSpacing: 0.5),
-                  ),
-                  midMidLabel: RichText(
-                    text: TextSpan(
-                      children: <TextSpan>[
-                        TextSpan(
-                          text: "R\$ ",
-                          style: TextStyle(
-                              fontFamily: 'Rubik',
-                              color: Colors.cyan,
-                              fontSize: 36,
-                              fontWeight: FontWeight.normal),
-                        ),
-                        TextSpan(
+            Container(
+              height: 380,
+              child: PageView(
+                children: <Widget>[
+                  CustomCard(
+                    topLeftIcon: Icon(
+                      Icons.credit_card,
+                      size: 30.0,
+                      color: Colors.grey[500],
+                    ),
+                    topLeftLabel: "Cartão de crédito",
+                    midTopLabel: Text(
+                      "FATURA ATUAL",
+                      style: TextStyle(
+                          color: Color(0xFF00BCC9),
+                          fontSize: 12,
+                          fontWeight: FontWeight.bold,
+                          letterSpacing: 0.5),
+                    ),
+                    midMidLabel: RichText(
+                      text: TextSpan(
+                        children: <TextSpan>[
+                          TextSpan(
+                            text: "R\$ ",
+                            style: TextStyle(
+                                fontFamily: 'Milliard',
+                                color: Color(0xFF00BCC9),
+                                fontSize: 30,
+                                fontWeight: FontWeight.normal),
+                          ),
+                          TextSpan(
                             text: "2607",
                             style: TextStyle(
-                                fontFamily: 'Rubik',
-                                color: Colors.cyan,
-                                fontSize: 36,
-                                fontWeight: FontWeight.w600)),
-                        TextSpan(
-                          text: ",00",
-                          style: TextStyle(
-                              fontFamily: 'Rubik',
-                              color: Colors.cyan,
-                              fontSize: 36,
-                              fontWeight: FontWeight.normal),
-                        ),
-                      ],
+                                fontFamily: 'Milliard',
+                                color: Color(0xFF00BCC9),
+                                fontSize: 30,
+                                fontWeight: FontWeight.w600),
+                          ),
+                          TextSpan(
+                            text: ",00",
+                            style: TextStyle(
+                                fontFamily: 'Milliard',
+                                color: Color(0xFF00BCC9),
+                                fontSize: 30,
+                                fontWeight: FontWeight.normal),
+                          ),
+                        ],
+                      ),
                     ),
-                  ),
-                  midBotLabel: RichText(
-                    text: TextSpan(
-                      children: <TextSpan>[
-                        TextSpan(
-                          text: "Limite disponível: ",
-                          style: TextStyle(
-                              fontFamily: 'Rubik',
-                              color: Colors.black87,
-                              fontSize: 14,
-                              fontWeight: FontWeight.normal,
-                              letterSpacing: 0.5),
-                        ),
-                        TextSpan(
-                          text: "R\$",
-                          style: TextStyle(
-                              fontFamily: 'Rubik',
-                              color: Colors.lightGreenAccent[700],
-                              fontSize: 14,
-                              fontWeight: FontWeight.w600,
-                              letterSpacing: 0.5),
-                        ),
-                        TextSpan(
-                          text: "3.112.018,00",
-                          style: TextStyle(
-                              fontFamily: 'Rubik',
-                              color: Colors.lightGreenAccent[700],
-                              fontSize: 14,
-                              fontWeight: FontWeight.w600,
-                              letterSpacing: 0.5),
-                        ),
-                      ],
+                    midBotLabel: RichText(
+                      text: TextSpan(
+                        children: <TextSpan>[
+                          TextSpan(
+                            text: "Limite disponível: ",
+                            style: TextStyle(
+                                fontFamily: 'Milliard',
+                                color: Colors.black87,
+                                fontSize: 12,
+                                fontWeight: FontWeight.normal,
+                                letterSpacing: 0.5),
+                          ),
+                          TextSpan(
+                            text: "R\$",
+                            style: TextStyle(
+                                fontFamily: 'Milliard',
+                                color: Color(0xFF9FBF2C),
+                                fontSize: 12,
+                                fontWeight: FontWeight.w600,
+                                letterSpacing: 0.5),
+                          ),
+                          TextSpan(
+                            text: "3.112.018,00",
+                            style: TextStyle(
+                                fontFamily: 'Milliard',
+                                color: Color(0xFF9FBF2C),
+                                fontSize: 12,
+                                fontWeight: FontWeight.w600,
+                                letterSpacing: 0.5),
+                          ),
+                        ],
+                      ),
                     ),
-                  ),
-                  bottomLeftIcon: Icon(
-                    Icons.shopping_cart,
-                    color: Colors.grey[700],
-                  ),
-                  bottomLabel:
-                      "Compra mais recente em Tatarem's Market no valor de R\$333,00 quinta",
-                  bottomRightIcon: Icon(
-                    Icons.arrow_forward_ios,
-                    size: 16,
-                    color: Colors.grey[500],
-                  ),
-                ),
-                CustomCard(
-                  topLeftIcon: Icon(
-                    Icons.monetization_on,
-                    size: 28.0,
-                    color: Colors.grey[500],
-                  ),
-                  topLeftLabel: "NuConta",
-                  midTopLabel: Text(
-                    "Saldo disponível",
-                    style: TextStyle(
-                      fontFamily: 'Rubik',
+                    bottomLeftIcon: Icon(
+                      Icons.shopping_cart,
                       color: Colors.grey[500],
-                      fontSize: 14,
-                      letterSpacing: 0.3,
+                    ),
+                    bottomLabel:
+                        "Compra mais recente em Tatarem's Market no valor de R\$333,00 quinta",
+                    bottomRightIcon: Icon(
+                      Icons.arrow_forward_ios,
+                      size: 16,
+                      color: Colors.grey[400],
+                    ),
+                    hasChart: true,
+                  ),
+                  CustomCard(
+                    topLeftIcon: Icon(
+                      Icons.monetization_on,
+                      size: 28.0,
+                      color: Colors.grey[500],
+                    ),
+                    topLeftLabel: "NuConta",
+                    midTopLabel: Text(
+                      "Saldo disponível",
+                      style: TextStyle(
+                        fontFamily: 'Milliard',
+                        color: Colors.grey[500],
+                        fontSize: 16,
+                        letterSpacing: 0.3,
+                      ),
+                    ),
+                    midMidLabel: Text(
+                      "R\$ 201.220,01",
+                      style: TextStyle(
+                        fontFamily: 'Milliard',
+                        color: Colors.black,
+                        fontSize: 38,
+                        fontWeight: FontWeight.normal,
+                      ),
+                    ),
+                    midBotLabel: Container(
+                      height: 0,
+                      width: 0,
+                    ),
+                    bottomLeftIcon: Icon(
+                      Icons.credit_card,
+                      size: 26.0,
+                      color: Colors.grey[500],
+                    ),
+                    bottomLabel:
+                        "Pagamento da fatura realizado no valor de R\$230.720,16 ontem",
+                    bottomRightIcon: Icon(
+                      Icons.arrow_forward_ios,
+                      size: 16,
+                      color: Colors.grey[400],
+                    ),
+                    hasChart: false,
+                  ),
+                  Container(
+                    decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(5),
+                      color: Colors.white,
+                    ),
+                    height: 350,
+                    width: MediaQuery.of(context).size.width - 32,
+                    margin: EdgeInsets.all(16),
+                    child: Stack(
+                      children: <Widget>[
+                        Column(
+                          mainAxisAlignment: MainAxisAlignment.start,
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: <Widget>[
+                            Padding(
+                              padding: const EdgeInsets.only(left: 20, top: 24),
+                              child: Row(
+                                mainAxisAlignment: MainAxisAlignment.center,
+                                children: <Widget>[
+                                  Icon(
+                                    Icons.card_giftcard,
+                                    color: Colors.grey[500],
+                                    size: 28.0,
+                                  ),
+                                ],
+                              ),
+                            ),
+                          ],
+                        ),
+                        Column(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          crossAxisAlignment: CrossAxisAlignment.center,
+                          children: <Widget>[
+                            Container(
+                              margin: EdgeInsets.only(bottom: 35),
+                              child: Stack(
+                                children: <Widget>[
+                                  Padding(
+                                    padding: const EdgeInsets.all(20.0),
+                                    child: Center(
+                                      child: Column(
+                                        mainAxisAlignment:
+                                            MainAxisAlignment.center,
+                                        crossAxisAlignment:
+                                            CrossAxisAlignment.center,
+                                        children: <Widget>[
+                                          Text("Hello Nubank"),
+                                          Text("Hello Nubank"),
+                                        ],
+                                      ),
+                                    ),
+                                  ),
+                                ],
+                              ),
+                            ),
+                          ],
+                        ),
+                      ],
                     ),
                   ),
-                  midMidLabel: Text(
-                    "R\$ 201.220,01",
-                    style: TextStyle(
-                      fontFamily: 'Rubik',
-                      color: Colors.black,
-                      fontSize: 36,
-                      fontWeight: FontWeight.normal,
-                    ),
-                  ),
-                  midBotLabel: Container(height: 0, width: 0,),
-                  bottomLeftIcon: Icon(
-                    Icons.credit_card,
-                    size: 26.0,
-                    color: Colors.grey[500],
-                  ),
-                  bottomLabel: "Pagamento da fatura realizado no valor de R\$230.720,16 ontem",
-                  bottomRightIcon: Icon(
-                    Icons.arrow_forward_ios,
-                    size: 16,
-                    color: Colors.grey[500],
-                  ),
-                ),
-              ],
+                ],
+              ),
             ),
           ],
         ),
