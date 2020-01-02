@@ -23,6 +23,7 @@ dependencies:
   cupertino_icons: ^0.1.2
   get_it: any
   page_view_indicators:
+  outline_material_icons:
 
 dev_dependencies:
   flutter_test:

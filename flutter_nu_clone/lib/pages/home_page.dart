@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_nu_clone/components/custom_card.dart';
+import 'package:flutter_nu_clone/components/rewards_card.dart';
+import 'package:flutter_nu_clone/components/small_card.dart';
+import 'package:outline_material_icons/outline_material_icons.dart';
 
 class HomePage extends StatefulWidget {
   @override
@@ -30,30 +33,30 @@ class _HomePageState extends State<HomePage> {
                     mainAxisAlignment: MainAxisAlignment.center,
                     crossAxisAlignment: CrossAxisAlignment.center,
                     children: <Widget>[
-                      Expanded(
-                        flex: 1,
-                        child: Container(
-                            padding: EdgeInsets.only(left: 10),
-                            child: Text(
-                              "Nu.",
-                              style: TextStyle(
-                                  color: Colors.white,
-                                  fontSize: 22,
-                                  fontWeight: FontWeight.bold),
-                            )),
-                      ),
-                      Expanded(
-                        flex: 3,
-                        child: Text(
-                          "Gustavo Tatarem",
-                          style: TextStyle(
-                            color: Colors.white,
-                            fontSize: 22,
-                            fontWeight: FontWeight.bold,
-                            letterSpacing: 1,
-                          ),
+                      // Expanded(
+                      //   flex: 1,
+                      //   child: Container(
+                      //       padding: EdgeInsets.only(left: 10),
+                      //       child: Text(
+                      //         "Nu.",
+                      //         style: TextStyle(
+                      //             color: Colors.white,
+                      //             fontSize: 22,
+                      //             fontWeight: FontWeight.bold),
+                      //       )),
+                      // ),
+                      // Expanded(
+                      //   flex: 3,
+                      Text(
+                        "Gustavo Tatarem",
+                        style: TextStyle(
+                          color: Colors.white,
+                          fontSize: 22,
+                          fontWeight: FontWeight.bold,
+                          letterSpacing: 1,
                         ),
                       ),
+                      // ),
                     ],
                   ),
                 ),
@@ -210,64 +213,85 @@ class _HomePageState extends State<HomePage> {
                     ),
                     hasChart: false,
                   ),
-                  Container(
-                    decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(5),
+                  RewardsCard(),
+                ],
+              ),
+            ),
+          ],
+        ),
+        Column(
+          mainAxisAlignment: MainAxisAlignment.end,
+          children: <Widget>[
+            Container(
+              height: 95,
+              margin: EdgeInsets.only(
+                bottom: 55,
+              ),
+              child: ListView(
+                padding: EdgeInsets.only(left: 20, right: 20),
+                scrollDirection: Axis.horizontal,
+                children: <Widget>[
+                  SmallCard(
+                    label: "Depositar",
+                    icon: Icon(
+                      OMIcons.monetizationOn,
+                      size: 24,
                       color: Colors.white,
                     ),
-                    height: 350,
-                    width: MediaQuery.of(context).size.width - 32,
-                    margin: EdgeInsets.all(16),
-                    child: Stack(
-                      children: <Widget>[
-                        Column(
-                          mainAxisAlignment: MainAxisAlignment.start,
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: <Widget>[
-                            Padding(
-                              padding: const EdgeInsets.only(left: 20, top: 24),
-                              child: Row(
-                                mainAxisAlignment: MainAxisAlignment.center,
-                                children: <Widget>[
-                                  Icon(
-                                    Icons.card_giftcard,
-                                    color: Colors.grey[500],
-                                    size: 28.0,
-                                  ),
-                                ],
-                              ),
-                            ),
-                          ],
-                        ),
-                        Column(
-                          mainAxisAlignment: MainAxisAlignment.center,
-                          crossAxisAlignment: CrossAxisAlignment.center,
-                          children: <Widget>[
-                            Container(
-                              margin: EdgeInsets.only(bottom: 35),
-                              child: Stack(
-                                children: <Widget>[
-                                  Padding(
-                                    padding: const EdgeInsets.all(20.0),
-                                    child: Center(
-                                      child: Column(
-                                        mainAxisAlignment:
-                                            MainAxisAlignment.center,
-                                        crossAxisAlignment:
-                                            CrossAxisAlignment.center,
-                                        children: <Widget>[
-                                          Text("Hello Nubank"),
-                                          Text("Hello Nubank"),
-                                        ],
-                                      ),
-                                    ),
-                                  ),
-                                ],
-                              ),
-                            ),
-                          ],
-                        ),
-                      ],
+                  ),
+                  SizedBox(
+                    width: 8,
+                  ),
+                  SmallCard(
+                    label: "Cartão virtual",
+                    icon: Icon(
+                      OMIcons.creditCard,
+                      size: 24,
+                      color: Colors.white,
+                    ),
+                  ),
+                  SizedBox(
+                    width: 8,
+                  ),
+                  SmallCard(
+                    label: "Ajustar limite",
+                    icon: Icon(
+                      Icons.tune,
+                      size: 24,
+                      color: Colors.white,
+                    ),
+                  ),
+                  SizedBox(
+                    width: 8,
+                  ),
+                  SmallCard(
+                    label: "Bloquear cartão",
+                    icon: Icon(
+                      OMIcons.lock,
+                      size: 24,
+                      color: Colors.white,
+                    ),
+                  ),
+                  SizedBox(
+                    width: 8,
+                  ),
+                  SmallCard(
+                    label: "Recarga do celular",
+                    icon: Icon(
+                      Icons.phone_iphone,
+                      size: 24,
+                      color: Colors.white,
+                    ),
+                  ),
+                  SizedBox(
+                    width: 8,
+                  ),
+                  SmallCard(
+                    label: "Indicar amigos",
+                    icon: Icon(
+                      OMIcons.personAdd,
+                      size: 24,
+                      color: Colors.white,
                     ),
                   ),
                 ],

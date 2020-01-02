@@ -1,29 +1,6 @@
 import 'package:flutter/material.dart';
 
-class CustomCard extends StatelessWidget {
-  final Widget topIcon;
-  final String topLeftLabel;
-  final Widget midTopLabel;
-  final Widget midMidLabel;
-  final Widget midBotLabel;
-  final Widget bottomLeftIcon;
-  final String bottomLabel;
-  final Widget bottomRightIcon;
-  final Widget child;
-  final bool hasChart;
-
-  CustomCard(
-      {@required this.topIcon,
-      @required this.topLeftLabel,
-      @required this.midTopLabel,
-      @required this.midMidLabel,
-      @required this.bottomLeftIcon,
-      @required this.bottomLabel,
-      @required this.bottomRightIcon,
-      @required this.hasChart,
-      this.child,
-      this.midBotLabel});
-
+class RewardsCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -41,12 +18,13 @@ class CustomCard extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: <Widget>[
               Padding(
-                padding: const EdgeInsets.only(left: 20, top: 24),
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: <Widget>[
-                    topIcon,
-                  ],
+                padding: const EdgeInsets.only(top: 24),
+                child: Center(
+                  child: Icon(
+                    Icons.card_giftcard,
+                    color: Colors.grey[500],
+                    size: 28.0,
+                  ),
                 ),
               ),
             ],
@@ -59,27 +37,30 @@ class CustomCard extends StatelessWidget {
                 margin: EdgeInsets.only(bottom: 35),
                 child: Stack(
                   children: <Widget>[
+                    Center(
+                      child: Text(
+                        "Nubank Rewards",
+                        textAlign: TextAlign.center,
+                        style: TextStyle(
+                          fontFamily: 'Milliard',
+                          color: Colors.black,
+                          fontSize: 30,
+                          fontWeight: FontWeight.bold,
+                        ),
+                      ),
+                    ),
                     Padding(
-                      padding: const EdgeInsets.all(20.0),
-                      child: Column(
-                        mainAxisAlignment: MainAxisAlignment.start,
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: <Widget>[
-                          midTopLabel,
-                          Row(
-                            children: <Widget>[
-                              midMidLabel,
-                              SizedBox(
-                                width: 8,
-                              ),
-                            ],
-                          ),
-                          Row(
-                            children: <Widget>[
-                              midBotLabel,
-                            ],
-                          ),
-                        ],
+                      padding:
+                          const EdgeInsets.only(left: 50, right: 50, top: 40),
+                      child: Text(
+                        "Acumule pontos que nunca expiram e troque por passagens aéreas ou serviços que você realmente usa.",
+                        style: TextStyle(
+                          fontFamily: 'Milliard',
+                          color: Colors.black,
+                          fontSize: 14,
+                          fontWeight: FontWeight.normal,
+                        ),
+                        textAlign: TextAlign.center,
                       ),
                     ),
                   ],
@@ -87,55 +68,36 @@ class CustomCard extends StatelessWidget {
               ),
             ],
           ),
-          Positioned(
-            bottom: 0,
-            left: 0,
-            right: 0,
-            child: Container(
-              height: 75,
-              decoration: BoxDecoration(
-                borderRadius: BorderRadius.only(
-                    bottomLeft: Radius.circular(5),
-                    bottomRight: Radius.circular(5)),
-                color: Colors.grey[100],
-              ),
-              child: Padding(
-                padding: const EdgeInsets.only(
-                    top: 8, bottom: 8, right: 16, left: 20),
-                child: Row(
-                  crossAxisAlignment: CrossAxisAlignment.center,
-                  children: <Widget>[
-                    Expanded(
-                      flex: 1,
-                      child: bottomLeftIcon,
+          Column(
+            mainAxisAlignment: MainAxisAlignment.end,
+            crossAxisAlignment: CrossAxisAlignment.center,
+            children: <Widget>[
+              Center(
+                child: Container(
+                  decoration: BoxDecoration(
+                    border: Border.all(
+                        color: Color.fromRGBO(130, 50, 158, 2.0), width: 0.6),
+                    borderRadius: BorderRadius.all(
+                      Radius.circular(4),
                     ),
-                    Expanded(
-                      flex: 14,
-                      child: LimitedBox(
-                        maxWidth: MediaQuery.of(context).size.width / 1.5,
-                        child: Container(
-                          padding: EdgeInsets.only(left: 16, right: 16),
-                          child: Text(
-                            bottomLabel,
-                            maxLines: 2,
-                            style: TextStyle(
-                                fontFamily: 'Milliard',
-                                color: Colors.black87,
-                                fontSize: 11,
-                                fontWeight: FontWeight.normal,
-                                letterSpacing: 0.5),
-                          ),
-                        ),
+                  ),
+                  margin: EdgeInsets.only(bottom: 32),
+                  height: 60,
+                  width: 300,
+                  child: Center(
+                    child: Text(
+                      "ATIVE O SEU REWARDS",
+                      style: TextStyle(
+                        fontFamily: 'Milliard',
+                        color: Color.fromRGBO(130, 50, 158, 2.0),
+                        fontSize: 12,
+                        fontWeight: FontWeight.bold,
                       ),
                     ),
-                    Expanded(
-                      flex: 1,
-                      child: bottomRightIcon,
-                    ),
-                  ],
+                  ),
                 ),
               ),
-            ),
+            ],
           ),
         ],
       ),
